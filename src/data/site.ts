@@ -35,6 +35,7 @@ export const site = {
         "MUI / HeroUI",
         "Responsive UI",
         "Design Systems",
+        "Solana / Wallet UX",
       ],
     },
     {
@@ -61,6 +62,7 @@ export const site = {
         "Auth & RLS",
         "Stripe",
         "AWS S3 / Lambda",
+        "Web3 / NFT-gated Flows",
       ],
     },
     {
