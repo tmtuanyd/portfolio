@@ -110,12 +110,20 @@ export function Hero() {
       </div>
 
       <div className="animate-rise-delay-5 w-full overflow-hidden border-y border-line py-3">
-        <div className="marquee-track flex gap-8 whitespace-nowrap font-mono text-[11px] tracking-[0.2em] text-ink-faint uppercase">
-          {[...ticker, ...ticker].map((item, index) => (
-            <span key={`${item}-${index}`} className="inline-flex items-center gap-8">
-              {item}
-              <span className="h-1 w-1 rounded-full bg-accent/70" />
-            </span>
+        <div className="marquee-track flex w-max whitespace-nowrap font-mono text-[11px] tracking-[0.2em] text-ink-faint uppercase">
+          {[0, 1].map((copy) => (
+            <div
+              key={copy}
+              className="flex min-w-[100vw] shrink-0 items-center justify-around gap-8 px-4"
+              aria-hidden={copy === 1}
+            >
+              {ticker.map((item) => (
+                <span key={`${copy}-${item}`} className="inline-flex items-center gap-8">
+                  {item}
+                  <span className="h-1 w-1 shrink-0 rounded-full bg-accent/70" />
+                </span>
+              ))}
+            </div>
           ))}
         </div>
       </div>

@@ -39,22 +39,42 @@ export function Projects() {
                   <p className="mt-2 text-sm text-accent">{project.subtitle}</p>
 
                   <dl className="mt-8 space-y-5">
-                    {(
-                      [
-                        ["Problem", project.problem],
-                        ["My role", project.role],
-                        ["Outcome", project.outcome],
-                      ] as const
-                    ).map(([label, value]) => (
-                      <div key={label}>
-                        <dt className="font-mono text-[11px] tracking-[0.16em] text-ink-faint uppercase">
-                          {label}
-                        </dt>
-                        <dd className="mt-2 text-sm leading-relaxed text-ink-soft">
-                          {value}
-                        </dd>
-                      </div>
-                    ))}
+                    <div>
+                      <dt className="font-mono text-[11px] tracking-[0.16em] text-ink-faint uppercase">
+                        Problem
+                      </dt>
+                      <dd className="mt-2 text-sm leading-relaxed text-ink-soft">
+                        {project.problem}
+                      </dd>
+                    </div>
+
+                    <div>
+                      <dt className="font-mono text-[11px] tracking-[0.16em] text-ink-faint uppercase">
+                        My role
+                      </dt>
+                      <dd className="mt-2">
+                        <ul className="space-y-2.5">
+                          {project.role.map((item) => (
+                            <li
+                              key={item}
+                              className="flex gap-3 text-sm leading-relaxed text-ink-soft"
+                            >
+                              <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </dd>
+                    </div>
+
+                    <div>
+                      <dt className="font-mono text-[11px] tracking-[0.16em] text-ink-faint uppercase">
+                        Outcome
+                      </dt>
+                      <dd className="mt-2 text-sm leading-relaxed text-ink-soft">
+                        {project.outcome}
+                      </dd>
+                    </div>
                   </dl>
 
                   <ul className="mt-6 flex flex-wrap gap-2">

@@ -3,7 +3,10 @@ export const site = {
   role: "Senior Frontend Engineer",
   tagline:
     "I build scalable SaaS and enterprise web products with React, Next.js, and TypeScript — from architecture to production.",
+  summary:
+    "Senior Frontend Engineer with nearly 7 years of experience building scalable SaaS, enterprise, and customer-facing web applications using React, Next.js, and TypeScript. Experienced in leading frontend development, designing maintainable architectures, and collaborating directly with Product Owners and cross-functional teams in fully remote international environments. Comfortable working across the stack with Next.js, Supabase, PostgreSQL, AWS, Firebase, and Stripe to deliver reliable production systems from design to deployment.",
   email: "tmtuanyd@gmail.com",
+  cvPdf: "/Tuan_Tran_CV.pdf",
   phone: "0346 731 336",
   phoneHref: "tel:+84346731336",
   location: "Hanoi · Remote",
@@ -148,7 +151,13 @@ export const site = {
       preview: "policy · media · checkout",
       problem:
         "Insurers, brokers, photographers, and customers needed one platform for policies, subscriptions, secure media, reporting, and onboarding — across web and mobile.",
-      role: "Led frontend architecture and delivery in React/Next.js, partnered with the Product Owner on solution design, and extended into Next.js APIs, Supabase/PostgreSQL, auth, and RLS.",
+      role: [
+        "Led frontend architecture and owned development of a multi-role SaaS platform built with React, Next.js, and TypeScript from feature design through production deployment.",
+        "Designed reusable UI architecture, shared business components, and maintainable application structure that accelerated feature delivery across multiple product modules.",
+        "Extended beyond frontend by building Next.js APIs, designing Supabase database structures, and implementing RLS, authentication, and server-side business logic.",
+        "Integrated Stripe, AWS S3, Firebase Cloud Messaging, Cloudflare services, and Resend for payments, media storage, notifications, and customer communication.",
+        "Collaborated with backend, mobile, QA, and DevOps to define APIs, troubleshoot production issues, and improve platform reliability and performance.",
+      ],
       outcome:
         "A production multi-role SaaS with Stripe, AWS S3, Firebase messaging, Cloudflare Turnstile, and Resend — plus reliable support for payments, permissions, and large media workflows.",
       stack: [
@@ -159,6 +168,9 @@ export const site = {
         "PostgreSQL",
         "Stripe",
         "AWS S3",
+        "Firebase",
+        "Cloudflare",
+        "Resend",
       ],
     },
     {
@@ -170,7 +182,14 @@ export const site = {
       preview: "wallet · nft · commerce",
       problem:
         "A multi-product brand needed content, NFT-gated media, merch commerce, and trading services (eSIM, gift cards, trade-in) under one scalable frontend.",
-      role: "Led Next.js frontend delivery — Solana wallet unlock flows, commerce UX, trading pipelines, Contentful CMS, and Mux streaming — with TypeScript, TanStack Query, and Zod.",
+      role: [
+        "Led frontend development of a large-scale Next.js platform spanning marketing content, e-commerce, trading flows, and Web3-gated media experiences.",
+        "Built NFT/wallet unlock flows with Solana wallet adapters — connect, sign messages, and unlock gated videos and digital content via on-chain ownership verification.",
+        "Delivered end-to-end commerce UX including product catalog, cart, checkout, and purchase tracking integrated with backend purchase APIs.",
+        "Implemented trading product flows (eSIM, gift cards, device trade-in) with country-based catalogs, form validation, and payment request pipelines.",
+        "Integrated Contentful for blogs, podcasts, and privacy content, plus Mux for streaming video playback across media sections.",
+        "Architected a scalable React/Next.js frontend with TypeScript, TanStack Query, Zod validation, and reusable UI systems for maintainable multi-section delivery.",
+      ],
       outcome:
         "A maintainable multi-section platform spanning marketing, gated media, checkout, and Web3 ownership verification.",
       stack: [
@@ -179,6 +198,8 @@ export const site = {
         "Tailwind",
         "HeroUI",
         "Solana",
+        "TanStack Query",
+        "Zod",
         "Contentful",
         "Mux",
       ],
@@ -192,7 +213,13 @@ export const site = {
       preview: "meet · showroom · sync",
       problem:
         "Organisations needed virtual meetings, digital showrooms, and collaborative workspaces with real-time communication — not a flat video call bolted onto a static site.",
-      role: "Designed and maintained a modular React SPA with Jitsi workflows, Socket.IO sync, Three.js 3D workspaces, multimedia viewers, i18n, and automated tests.",
+      role: [
+        "Developed scalable React architecture for real-time collaboration features including virtual meetings, shared workspaces, and digital showrooms.",
+        "Integrated Jitsi, Socket.IO, and Three.js to build interactive meeting experiences with real-time synchronization across multiple users.",
+        "Built reusable frontend modules and shared infrastructure supporting multilingual deployments and organization-specific customizations.",
+        "Improved quality with automated testing strategies, rendering performance work, and participation in architecture discussions and code reviews.",
+        "Worked within an international Agile team, collaborating with backend engineers to evolve APIs and complex business workflows.",
+      ],
       outcome:
         "A cross-platform collaboration product with live workspace sync, role-based access, and interactive 3D showrooms.",
       stack: [
@@ -201,6 +228,7 @@ export const site = {
         "Socket.IO",
         "Jitsi",
         "Three.js",
+        "i18next",
         "Playwright",
       ],
     },

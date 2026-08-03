@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { site } from "@/data/site";
 
@@ -83,14 +84,31 @@ export function Header() {
               </a>
             );
           })}
+          <Link
+            href="/cv"
+            className="group flex items-center gap-2 px-3 py-2 font-mono text-xs text-ink-soft transition-colors hover:text-ink"
+          >
+            <span className="text-ink-faint transition-colors group-hover:text-accent">
+              05
+            </span>
+            CV
+          </Link>
         </nav>
 
-        <a
-          href="#contact"
-          className="inline-flex items-center gap-2 border border-line bg-bg-elevated/60 px-3 py-2 font-mono text-xs text-ink transition-all hover:border-accent hover:text-accent"
-        >
-          Get in touch
-        </a>
+        <div className="flex items-center gap-2">
+          <Link
+            href="/cv"
+            className="inline-flex items-center border border-line bg-bg-elevated/60 px-3 py-2 font-mono text-xs text-ink transition-all hover:border-accent hover:text-accent md:hidden"
+          >
+            CV
+          </Link>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 border border-line bg-bg-elevated/60 px-3 py-2 font-mono text-xs text-ink transition-all hover:border-accent hover:text-accent"
+          >
+            Get in touch
+          </a>
+        </div>
       </div>
     </header>
   );

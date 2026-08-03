@@ -225,8 +225,8 @@ body {
 }
 
 .marquee-track {
-  animation: marquee 22s linear infinite;
-  width: max-content;
+  animation: marquee 28s linear infinite;
+  will-change: transform;
 }
 
 .bar {
