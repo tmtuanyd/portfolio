@@ -102,17 +102,17 @@ export function CvPage() {
             {site.experience.map((job) => (
               <article key={job.company}>
                 <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-                  <h3 className="font-display text-xl font-bold text-ink">
-                    {job.company}
-                  </h3>
+                  <div>
+                    <h3 className="font-display text-xl font-bold text-ink">
+                      {job.company}
+                    </h3>
+                    <p className="mt-1 text-sm text-ink-soft">{job.title}</p>
+                  </div>
                   <p className="font-mono text-[11px] text-ink-faint">
                     {job.period}
                   </p>
                 </div>
                 <p className="mt-1 font-mono text-xs text-accent">{job.place}</p>
-                <p className="mt-3 text-sm leading-relaxed text-ink-soft">
-                  {job.summary}
-                </p>
                 <ul className="mt-4 space-y-2">
                   {job.highlights.map((item) => (
                     <li

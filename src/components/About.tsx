@@ -59,6 +59,7 @@ export function About() {
                       <p className="font-display text-xl font-semibold text-ink">
                         {job.company}
                       </p>
+                      <p className="mt-1 text-sm text-ink-soft">{job.title}</p>
                       <p className="mt-2 font-mono text-xs text-accent">
                         {job.period}
                       </p>

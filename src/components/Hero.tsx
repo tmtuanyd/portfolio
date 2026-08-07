@@ -76,7 +76,7 @@ export function Hero() {
 
           <div className="mt-8 grid grid-cols-3 gap-3">
             {[
-              { label: "Years", value: "7+" },
+              { label: "Years", value: "6+" },
               { label: "Markets", value: "4" },
               { label: "Products", value: "10+" },
             ].map((stat, index) => (
