@@ -6,7 +6,7 @@ export const site = {
   summary:
     "Senior Frontend Engineer with 6+ years of experience building SaaS, enterprise, logistics, and Web3 applications using React, Next.js, and TypeScript. Experienced in frontend architecture, performance optimization, and delivering production-ready software throughout the full product lifecycle. Comfortable taking ownership beyond the frontend by contributing to backend services, authentication, cloud integrations, and cross-functional product delivery.",
   email: "tmtuanyd@gmail.com",
-  cvPdf: "/Tuan_Tran_CV.pdf",
+  cvPdf: "/TuanTranCV.pdf",
   phone: "0346 731 336",
   phoneHref: "tel:+84346731336",
   location: "Hanoi · Remote",
