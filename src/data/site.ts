@@ -301,8 +301,12 @@ export const site = {
         "Extended the Three.js digital showroom with configurable stages and 3D object settings.",
       ],
       stack: ["React", "Redux", "Socket.IO", "Jitsi", "Three.js"],
-      links: [],
-      status: "Client platform, no longer public",
+      image: {
+        src: "/projects/klarland.webp",
+        alt: "klar.land home screen with the virtual showroom and video communication tiles.",
+        domain: "klar.land",
+      },
+      links: [{ label: "Live platform", href: "https://klar.land" }],
     },
     {
       slug: "aintivirus",
@@ -317,8 +321,17 @@ export const site = {
         "Solana bridge app with wallet connection, transaction confirmation, and an OpenAI Assistants chat.",
       ],
       stack: ["Next.js", "TypeScript", "Solana Web3.js", "Contentful", "Mux"],
-      links: [],
-      status: "Domain now points to another site",
+      image: {
+        src: "/projects/aintivirus.webp",
+        alt: "AIntivirus homepage as archived in January 2026.",
+        domain: "aintivirus.ai (archived)",
+      },
+      links: [
+        {
+          label: "Archived site (Jan 2026)",
+          href: "https://web.archive.org/web/20260125231843/https://aintivirus.ai/",
+        },
+      ],
     },
     {
       slug: "webshop",
@@ -332,8 +345,21 @@ export const site = {
         "Checkout, account, and post-purchase flows; accessibility and SEO work.",
       ],
       stack: ["Preact", "Razzle (SSR)", "GraphQL", "Auth0", "Stripe"],
-      links: [],
-      status: "Storefronts no longer online",
+      image: {
+        src: "/projects/webshop.webp",
+        alt: "Shops.ae storefront, one of the brands served by Webshop 3.0, archived in November 2025.",
+        domain: "shops.ae (archived)",
+      },
+      links: [
+        {
+          label: "Shops.ae (archived)",
+          href: "https://web.archive.org/web/20251113000036/https://shops.ae/",
+        },
+        {
+          label: "Webshop.nl (archived)",
+          href: "https://web.archive.org/web/20251202153730/https://webshop.nl/",
+        },
+      ],
     },
     {
       slug: "lead-visibility",
@@ -378,6 +404,11 @@ export const site = {
         "Real-time updates over Socket.IO, i18n, and Google Maps features.",
       ],
       stack: ["React", "Redux", "Material UI", "Socket.IO"],
+      image: {
+        src: "/projects/ilico.webp",
+        alt: "Ilico sign-in screen for the Silico workspace.",
+        domain: "silico.ilico.cloud",
+      },
       links: [{ label: "App sign-in", href: "https://silico.ilico.cloud" }],
     },
   ] satisfies Project[],

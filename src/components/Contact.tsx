@@ -52,8 +52,8 @@ export function Contact() {
         Have a product worth building? Let&apos;s talk.
       </h3>
       <p className="mt-3 leading-relaxed text-ink-soft">
-        I&apos;m open to senior full-stack and frontend roles, remote or with teams in Australia,
-        New Zealand, Europe, and the US. Email me at{" "}
+        I&apos;m open to senior full-stack and frontend roles and to freelance projects, with
+        teams and founders anywhere. Email me at{" "}
         <a href={`mailto:${site.email}`} className="font-medium text-ink underline decoration-line-strong underline-offset-4 hover:text-accent">
           {site.email}
         </a>{" "}
