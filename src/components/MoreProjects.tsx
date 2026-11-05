@@ -30,7 +30,7 @@ export function MoreProjects() {
         More projects
       </p>
       <p className="mb-6 text-sm text-ink-soft">
-        Click a project to expand full details below.
+        Select a project to see what I built.
       </p>
 
       <ul className="divide-y divide-line border-y border-line">
@@ -44,7 +44,7 @@ export function MoreProjects() {
                 aria-expanded={isActive}
                 aria-controls={`${baseId}-detail`}
                 onClick={() => toggle(project)}
-                className={`group grid w-full gap-2 py-5 text-left transition-colors hover:bg-white/[0.02] md:grid-cols-[220px_1fr_180px_28px] md:items-center md:gap-6 md:px-3 ${
+                className={`group grid w-full gap-2 py-5 text-left transition-colors hover:bg-white/[0.02] md:grid-cols-[230px_1fr_250px_28px] md:items-center md:gap-6 md:px-3 ${
                   isActive ? "bg-accent-dim/40" : ""
                 }`}
               >

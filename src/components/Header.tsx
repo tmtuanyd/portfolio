@@ -6,9 +6,10 @@ import { site } from "@/data/site";
 
 const links = [
   { href: "#about", id: "about", label: "About", num: "01" },
-  { href: "#skills", id: "skills", label: "Skills", num: "02" },
-  { href: "#work", id: "work", label: "Work", num: "03" },
-  { href: "#contact", id: "contact", label: "Contact", num: "04" },
+  { href: "#work", id: "work", label: "Work", num: "02" },
+  { href: "#experience", id: "experience", label: "Experience", num: "03" },
+  { href: "#skills", id: "skills", label: "Skills", num: "04" },
+  { href: "#contact", id: "contact", label: "Contact", num: "05" },
 ];
 
 export function Header() {
@@ -89,7 +90,7 @@ export function Header() {
             className="group flex items-center gap-2 px-3 py-2 font-mono text-xs text-ink-soft transition-colors hover:text-ink"
           >
             <span className="text-ink-faint transition-colors group-hover:text-accent">
-              05
+              06
             </span>
             CV
           </Link>

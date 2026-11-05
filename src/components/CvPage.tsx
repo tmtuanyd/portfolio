@@ -70,6 +70,14 @@ export function CvPage() {
             >
               github.com/tmtuanyd
             </a>
+            <a
+              href={site.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent"
+            >
+              linkedin.com/in/tuan-tran-71ba90191
+            </a>
           </p>
         </header>
 

@@ -29,10 +29,53 @@ function Shell({
   );
 }
 
+function ReelWorkPreview({ preview }: { preview: string }) {
+  return (
+    <div className="flex h-[calc(100%-1.5rem)] flex-col justify-between">
+      <div className="grid flex-1 grid-cols-[0.8fr_1.2fr] gap-3">
+        <div className="relative flex flex-col justify-end overflow-hidden border border-line bg-[linear-gradient(160deg,rgba(74,227,168,0.18),rgba(242,176,106,0.08)_60%,transparent)] p-3">
+          <span className="absolute top-2 left-2 inline-flex items-center gap-1.5 font-mono text-[10px] text-accent">
+            <span className="live-dot h-1.5 w-1.5 rounded-full bg-accent" />
+            reel
+          </span>
+          <p className="font-display text-sm font-bold text-ink">Bartender</p>
+          <p className="font-mono text-[10px] text-ink-soft">0:30 · verified</p>
+        </div>
+        <div className="flex flex-col gap-2 border border-line bg-bg/40 p-3">
+          <div className="flex items-center justify-between">
+            <p className="font-mono text-[10px] text-ink-faint">venue.shortlist</p>
+            <span className="font-mono text-[10px] text-warm">{preview}</span>
+          </div>
+          {["Barista · 2 km", "Chef · 5 km", "Host · 1 km"].map((item, i) => (
+            <div
+              key={item}
+              className="flex items-center justify-between border border-line px-2 py-1.5 font-mono text-[10px] text-ink-soft"
+            >
+              <span>{item}</span>
+              <span className="text-accent">{["match", "chat", "shift"][i]}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="mt-3 grid grid-cols-7 gap-1">
+        {["M", "T", "W", "T", "F", "S", "S"].map((day, i) => (
+          <div key={i} className="border border-line bg-bg/50 p-1 text-center">
+            <p className="font-mono text-[9px] text-ink-faint">{day}</p>
+            <div
+              className="mx-auto mt-1 h-1.5 bg-accent/50"
+              style={{ width: `${[60, 80, 40, 90, 100, 70, 30][i]}%` }}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function InsureVaultPreview({ preview }: { preview: string }) {
   return (
     <div className="flex h-[calc(100%-1.5rem)] flex-col justify-between">
-      <div className="grid grid-cols-[72px_1fr] gap-3">
+      <div className="grid grid-cols-[84px_1fr] gap-3">
         <div className="space-y-2 border border-line bg-bg/40 p-2">
           {["Policies", "Media", "Billing"].map((item) => (
             <div
@@ -147,6 +190,7 @@ function KlarlandPreview({ preview }: { preview: string }) {
 export function ProjectPreview({ slug, title, badge, preview }: PreviewProps) {
   return (
     <Shell title={title} badge={badge}>
+      {slug === "reelwork" && <ReelWorkPreview preview={preview} />}
       {slug === "insurevault" && <InsureVaultPreview preview={preview} />}
       {slug === "aintivirus" && <AIntivirusPreview preview={preview} />}
       {slug === "klarland-meet" && <KlarlandPreview preview={preview} />}

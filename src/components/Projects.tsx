@@ -10,7 +10,7 @@ export function Projects() {
       <div className="mx-auto w-full max-w-6xl px-5 py-20 md:px-8 md:py-28">
         <Reveal>
           <SectionHeading
-            index="03"
+            index="02"
             label="Selected work"
             title="Systems shipped end to end."
           />

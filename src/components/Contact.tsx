@@ -50,7 +50,7 @@ export function Contact() {
       <div className="mx-auto w-full max-w-6xl px-5 py-20 md:px-8 md:py-28">
         <Reveal>
           <SectionHeading
-            index="04"
+            index="05"
             label="Contact"
             title="Have a product worth building? Let's talk."
           />
@@ -163,6 +163,22 @@ export function Contact() {
                       className="inline-flex items-center gap-2 text-ink transition-colors hover:text-accent"
                     >
                       github.com/tmtuanyd
+                      <span className="link-arrow">→</span>
+                    </a>
+                  </dd>
+                </div>
+                <div className="border-b border-line py-4">
+                  <dt className="font-mono text-[11px] text-ink-faint uppercase">
+                    LinkedIn
+                  </dt>
+                  <dd className="mt-1">
+                    <a
+                      href={site.social.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-ink transition-colors hover:text-accent"
+                    >
+                      linkedin.com/in/tuan-tran-71ba90191
                       <span className="link-arrow">→</span>
                     </a>
                   </dd>
