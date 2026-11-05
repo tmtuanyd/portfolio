@@ -1,100 +1,111 @@
+import Image from "next/image";
 import { site } from "@/data/site";
+
+const iconLinks = [
+  { label: "Email", href: `mailto:${site.email}`, text: site.email },
+  { label: "LinkedIn", href: site.social.linkedin, text: "LinkedIn" },
+  { label: "GitHub", href: site.social.github, text: "GitHub" },
+];
 
 export function Hero() {
   return (
-    <section id="top" className="relative z-10 flex min-h-[100svh] w-full flex-col">
-      <div className="mx-auto grid w-full max-w-6xl flex-1 items-center gap-12 px-5 pt-28 pb-12 md:grid-cols-[1.15fr_0.85fr] md:px-8 md:pb-16">
+    <section id="top" className="relative z-10 w-full">
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 px-5 pt-32 pb-16 md:grid-cols-[1.25fr_0.75fr] md:gap-16 md:px-8 md:pt-40 md:pb-24">
         <div>
-          <div className="animate-rise flex items-center justify-between font-mono text-[11px] tracking-[0.18em] text-ink-faint uppercase">
-            <span>{site.location}</span>
-            <span className="hidden sm:inline">Portfolio / 2026</span>
-          </div>
-
-          <p className="animate-rise-delay-1 mt-10 font-mono text-xs tracking-[0.2em] text-accent uppercase">
-            {site.role}
+          <p className="animate-rise inline-flex items-center gap-2 rounded-full border border-line bg-bg-elevated/70 px-3 py-1.5 text-xs text-ink-soft">
+            <span className="live-dot h-1.5 w-1.5 rounded-full bg-accent" />
+            {site.availability} · {site.location}
           </p>
 
-          <h1 className="animate-rise-delay-2 name-glow mt-4 font-display text-5xl leading-[0.92] font-extrabold tracking-tight text-ink sm:text-6xl md:text-7xl lg:text-8xl">
+          <h1 className="animate-rise-delay-1 mt-6 text-4xl leading-[1.05] font-semibold tracking-tight text-ink sm:text-5xl md:text-6xl">
             {site.name}
+            <span className="mt-2 block bg-gradient-to-r from-accent to-[#9be7ff] bg-clip-text text-transparent">
+              {site.role}
+            </span>
           </h1>
 
-          <p className="animate-rise-delay-3 mt-6 max-w-xl text-lg leading-relaxed text-ink-soft md:text-xl">
+          <p className="animate-rise-delay-2 mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
             {site.tagline}
           </p>
 
-          <div className="animate-rise-delay-4 mt-10 flex flex-wrap items-center gap-4">
+          <div className="animate-rise-delay-3 mt-8 flex flex-wrap items-center gap-3">
             <a
               href="#work"
-              className="inline-flex items-center gap-2 bg-ink px-5 py-3 text-sm font-semibold text-bg transition-transform hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-bg transition-transform hover:-translate-y-0.5"
             >
-              View work <span className="link-arrow">→</span>
+              See my work <span className="link-arrow">→</span>
             </a>
             <a
               href={site.cvPdf}
               download
-              className="inline-flex items-center gap-2 border border-line-strong px-5 py-3 text-sm font-semibold text-ink transition-all hover:-translate-y-0.5 hover:border-accent hover:text-accent"
+              className="inline-flex items-center gap-2 rounded-lg border border-line-strong px-5 py-3 text-sm font-semibold text-ink transition-all hover:-translate-y-0.5 hover:border-accent hover:text-accent"
             >
               Download CV
             </a>
-            <a
-              href={site.social.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-mono text-xs text-ink-soft transition-colors hover:text-accent"
-            >
-              LinkedIn ↗
-            </a>
           </div>
+
+          <ul className="animate-rise-delay-4 mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+            {iconLinks.map((link) => (
+              <li key={link.label}>
+                <a
+                  href={link.href}
+                  {...(link.href.startsWith("http")
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                  className="text-ink-soft underline decoration-line-strong underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+                >
+                  {link.text}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <div className="animate-rise-delay-3 panel scanline relative overflow-hidden p-5 md:p-6">
-          <div className="flex items-center justify-between">
-            <p className="font-mono text-[11px] tracking-[0.16em] text-ink-faint uppercase">
-              Impact
-            </p>
-            <div className="inline-flex items-center gap-2 font-mono text-[11px] text-accent">
-              <span className="live-dot h-1.5 w-1.5 rounded-full bg-accent" />
-              {site.availability}
-            </div>
+        <div className="animate-rise-delay-2 relative mx-auto w-full max-w-[260px] md:max-w-[340px]">
+          <div className="absolute -inset-6 rounded-[2rem] bg-[radial-gradient(circle_at_30%_20%,rgba(74,227,168,0.28),transparent_60%),radial-gradient(circle_at_80%_90%,rgba(155,231,255,0.18),transparent_55%)] blur-2xl" />
+          <div className="relative overflow-hidden rounded-3xl border border-line-strong bg-bg-panel">
+            <Image
+              src={site.photo}
+              alt={`Portrait of ${site.name}`}
+              width={800}
+              height={1000}
+              sizes="(max-width: 768px) 80vw, 340px"
+              loading="eager"
+              fetchPriority="high"
+              className="h-auto w-full"
+            />
           </div>
-
-          <dl className="mt-6 grid grid-cols-2 gap-3">
-            {site.metrics.map((metric) => (
-              <div key={metric.label} className="border border-line bg-bg/50 p-4">
-                <dt className="sr-only">{metric.label}</dt>
-                <dd>
-                  <p className="font-display text-2xl font-bold whitespace-nowrap text-ink sm:text-3xl">
-                    {metric.value}
-                  </p>
-                  <p className="mt-2 text-xs leading-snug text-ink-soft">
-                    {metric.label}
-                  </p>
-                </dd>
-              </div>
-            ))}
-          </dl>
-
-          <p className="mt-6 border-t border-line pt-4 font-mono text-xs text-ink-soft">
-            <span className="text-accent">→</span> now: {site.now}
+          <p className="relative mt-4 rounded-xl border border-line bg-bg-elevated/90 px-4 py-3 text-xs leading-relaxed text-ink-soft backdrop-blur">
+            <span className="font-mono text-accent">Now</span> · {site.now}
           </p>
         </div>
       </div>
 
-      <div className="animate-rise-delay-5 w-full overflow-hidden border-y border-line py-3">
-        <div className="marquee-track flex w-max whitespace-nowrap font-mono text-[11px] tracking-[0.2em] text-ink-faint uppercase">
-          {[0, 1].map((copy) => (
-            <div
-              key={copy}
-              className="flex min-w-[100vw] shrink-0 items-center justify-around gap-8 px-4"
-              aria-hidden={copy === 1}
-            >
-              {site.ticker.map((item) => (
-                <span key={`${copy}-${item}`} className="inline-flex items-center gap-8">
-                  {item}
-                  <span className="h-1 w-1 shrink-0 rounded-full bg-accent/70" />
-                </span>
-              ))}
+      <div className="mx-auto w-full max-w-6xl px-5 md:px-8">
+        <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-4">
+          {site.metrics.map((metric) => (
+            <div key={metric.label} className="bg-bg-elevated p-5 md:p-6">
+              <dt className="sr-only">{metric.label}</dt>
+              <dd>
+                <p className="text-3xl font-semibold tracking-tight whitespace-nowrap text-ink md:text-4xl">
+                  {metric.value}
+                </p>
+                <p className="mt-2 text-sm leading-snug text-ink-soft">
+                  {metric.label}
+                </p>
+              </dd>
             </div>
+          ))}
+        </dl>
+
+        <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 border-b border-line pb-12">
+          <p className="font-mono text-[11px] tracking-[0.18em] text-ink-faint uppercase">
+            Products built for
+          </p>
+          {site.builtFor.map((name) => (
+            <span key={name} className="text-base font-semibold tracking-tight text-ink-soft/80">
+              {name}
+            </span>
           ))}
         </div>
       </div>

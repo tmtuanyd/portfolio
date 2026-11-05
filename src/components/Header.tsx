@@ -5,11 +5,10 @@ import { useEffect, useState } from "react";
 import { site } from "@/data/site";
 
 const links = [
-  { href: "#about", id: "about", label: "About", num: "01" },
-  { href: "#work", id: "work", label: "Work", num: "02" },
-  { href: "#experience", id: "experience", label: "Experience", num: "03" },
-  { href: "#skills", id: "skills", label: "Skills", num: "04" },
-  { href: "#contact", id: "contact", label: "Contact", num: "05" },
+  { href: "#work", id: "work", label: "Work", num: "01" },
+  { href: "#experience", id: "experience", label: "Experience", num: "02" },
+  { href: "#skills", id: "skills", label: "Skills", num: "03" },
+  { href: "#contact", id: "contact", label: "Contact", num: "04" },
 ];
 
 export function Header() {
@@ -53,9 +52,12 @@ export function Header() {
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-4 md:px-8">
         <a
           href="#top"
-          className="font-mono text-sm tracking-tight text-ink transition-colors hover:text-accent"
+          className="flex items-center gap-2 text-sm font-semibold tracking-tight text-ink transition-colors hover:text-accent"
         >
-          {site.name.toLowerCase().replace(" ", "_")}
+          <span className="grid h-7 w-7 place-items-center rounded-md bg-accent font-mono text-[11px] font-bold text-bg">
+            TT
+          </span>
+          {site.name}
         </a>
 
         <nav className="hidden items-center gap-1 md:flex">
@@ -90,7 +92,7 @@ export function Header() {
             className="group flex items-center gap-2 px-3 py-2 font-mono text-xs text-ink-soft transition-colors hover:text-ink"
           >
             <span className="text-ink-faint transition-colors group-hover:text-accent">
-              06
+              05
             </span>
             CV
           </Link>

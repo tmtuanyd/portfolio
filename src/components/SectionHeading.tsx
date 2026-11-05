@@ -11,7 +11,7 @@ export function SectionHeading({ index, label, title }: SectionHeadingProps) {
         {label}
         <span className="text-accent"> / {index}</span>
       </p>
-      <h2 className="mt-4 max-w-3xl font-display text-3xl font-bold tracking-tight text-ink md:text-5xl">
+      <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-ink md:text-5xl">
         {title}
       </h2>
     </div>

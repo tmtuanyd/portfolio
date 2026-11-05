@@ -50,7 +50,7 @@ export function Contact() {
       <div className="mx-auto w-full max-w-6xl px-5 py-20 md:px-8 md:py-28">
         <Reveal>
           <SectionHeading
-            index="05"
+            index="04"
             label="Contact"
             title="Have a product worth building? Let's talk."
           />

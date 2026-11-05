@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Ambient } from "@/components/Ambient";
 import { Footer } from "@/components/Footer";
-import { site } from "@/data/site";
+import { site, type Project } from "@/data/site";
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return (
@@ -12,7 +12,7 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
 }
 
 export function CvPage() {
-  const projects = [...site.featured, ...site.moreProjects];
+  const projects: readonly Project[] = [...site.featured, ...site.moreProjects];
 
   return (
     <>
@@ -50,7 +50,7 @@ export function CvPage() {
           <p className="font-mono text-[11px] tracking-[0.18em] text-ink-faint uppercase">
             Curriculum Vitae
           </p>
-          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight text-ink md:text-5xl">
+          <h1 className="mt-3 text-4xl font-semibold tracking-tight text-ink md:text-5xl">
             {site.name}
           </h1>
           <p className="mt-2 text-lg text-accent">{site.role}</p>
@@ -92,7 +92,7 @@ export function CvPage() {
           <SectionTitle>Technical skills</SectionTitle>
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
             {site.skillGroups.map((group) => (
-              <div key={group.code} className="border border-line bg-bg-elevated/40 p-4">
+              <div key={group.label} className="border border-line bg-bg-elevated/40 p-4">
                 <p className="font-mono text-[11px] tracking-[0.14em] text-ink-faint uppercase">
                   {group.label}
                 </p>
@@ -111,7 +111,7 @@ export function CvPage() {
               <article key={job.company}>
                 <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
                   <div>
-                    <h3 className="font-display text-xl font-bold text-ink">
+                    <h3 className="text-xl font-semibold tracking-tight text-ink">
                       {job.company}
                     </h3>
                     <p className="mt-1 text-sm text-ink-soft">{job.title}</p>
@@ -140,51 +140,48 @@ export function CvPage() {
         <section className="mt-12">
           <SectionTitle>Featured projects</SectionTitle>
           <div className="mt-6 space-y-8">
-            {projects.map((project) => {
-              const summary =
-                "summary" in project
-                  ? project.summary
-                  : "problem" in project
-                    ? project.problem
-                    : "";
-              const highlights =
-                "highlights" in project
-                  ? project.highlights
-                  : "role" in project
-                    ? project.role
-                    : [];
-
-              return (
-                <article key={project.title}>
-                  <h3 className="font-display text-xl font-bold text-ink">
-                    {project.title}
-                  </h3>
-                  {"subtitle" in project && (
-                    <p className="mt-1 text-sm text-accent">{project.subtitle}</p>
-                  )}
-                  {"blurb" in project && !("subtitle" in project) && (
-                    <p className="mt-1 text-sm text-accent">{project.blurb}</p>
-                  )}
-                  <p className="mt-3 text-sm leading-relaxed text-ink-soft">
-                    {summary}
-                  </p>
-                  <ul className="mt-4 space-y-2">
-                    {highlights.map((item) => (
-                      <li
-                        key={item}
-                        className="flex gap-3 text-sm leading-relaxed text-ink-soft"
+            {projects.map((project) => (
+              <article key={project.slug}>
+                <h3 className="text-xl font-semibold tracking-tight text-ink">
+                  {project.title}
+                </h3>
+                <p className="mt-1 text-sm text-accent">
+                  {project.category} · {project.client}
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-ink-soft">
+                  {project.summary}
+                </p>
+                <ul className="mt-4 space-y-2">
+                  {project.highlights.map((item) => (
+                    <li
+                      key={item}
+                      className="flex gap-3 text-sm leading-relaxed text-ink-soft"
+                    >
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-3 font-mono text-[11px] text-ink-faint">
+                  Tech: {project.stack.join(", ")}
+                </p>
+                {project.links.length > 0 && (
+                  <p className="mt-2 flex flex-wrap gap-4 text-sm">
+                    {project.links.map((link) => (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-ink underline decoration-line-strong underline-offset-4 hover:text-accent"
                       >
-                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
-                        <span>{item}</span>
-                      </li>
+                        {link.label} ↗
+                      </a>
                     ))}
-                  </ul>
-                  <p className="mt-3 font-mono text-[11px] text-ink-faint">
-                    Tech: {project.stack.join(", ")}
                   </p>
-                </article>
-              );
-            })}
+                )}
+              </article>
+            ))}
           </div>
         </section>
 

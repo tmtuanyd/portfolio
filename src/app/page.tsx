@@ -1,4 +1,3 @@
-import { About } from "@/components/About";
 import { Ambient } from "@/components/Ambient";
 import { Contact } from "@/components/Contact";
 import { Experience } from "@/components/Experience";
@@ -15,7 +14,6 @@ export default function Home() {
       <Header />
       <main className="relative z-10">
         <Hero />
-        <About />
         <Projects />
         <Experience />
         <Skills />
