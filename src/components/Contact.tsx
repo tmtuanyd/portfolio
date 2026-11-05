@@ -1,8 +1,6 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Reveal } from "@/components/Reveal";
-import { SectionHeading } from "@/components/SectionHeading";
 import { site } from "@/data/site";
 
 type Status = "idle" | "loading" | "success" | "error";
@@ -46,19 +44,23 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative z-10 border-t border-line">
-      <div className="mx-auto w-full max-w-6xl px-5 py-20 md:px-8 md:py-28">
-        <Reveal>
-          <SectionHeading
-            index="04"
-            label="Contact"
-            title="Have a product worth building? Let's talk."
-          />
-        </Reveal>
-
-        <div className="grid gap-12 md:grid-cols-[1.1fr_0.9fr] md:gap-16">
-          <Reveal delay={80}>
-            <form onSubmit={onSubmit} className="panel space-y-5 rounded-2xl p-6 md:p-7">
+    <section id="contact" className="mb-16 scroll-mt-16 lg:scroll-mt-24" aria-label="Contact">
+      <div className="sticky top-0 z-20 -mx-6 mb-6 bg-bg/85 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only">
+        <h2 className="text-xs font-semibold tracking-[0.18em] text-ink uppercase">Contact</h2>
+      </div>
+      <h3 className="text-2xl font-semibold tracking-tight text-ink">
+        Have a product worth building? Let&apos;s talk.
+      </h3>
+      <p className="mt-3 leading-relaxed text-ink-soft">
+        I&apos;m open to senior full-stack and frontend roles, remote or with teams in Australia,
+        New Zealand, Europe, and the US. Email me at{" "}
+        <a href={`mailto:${site.email}`} className="font-medium text-ink underline decoration-line-strong underline-offset-4 hover:text-accent">
+          {site.email}
+        </a>{" "}
+        or send a message here.
+      </p>
+      <div className="mt-8">
+        <form onSubmit={onSubmit} className="space-y-5 rounded-xl border border-line bg-bg-elevated p-5 md:p-6">
               <label className="block">
                 <span className="font-mono text-[11px] tracking-[0.16em] text-ink-faint uppercase">
                   Name
@@ -117,82 +119,6 @@ export function Contact() {
                 </p>
               )}
             </form>
-          </Reveal>
-
-          <Reveal delay={140}>
-            <div>
-              <p className="font-mono text-xs tracking-[0.18em] text-ink-faint uppercase">
-                Or reach me directly
-              </p>
-              <dl className="mt-6 space-y-0 border-t border-line">
-                <div className="border-b border-line py-4">
-                  <dt className="font-mono text-[11px] text-ink-faint uppercase">
-                    Email
-                  </dt>
-                  <dd className="mt-1">
-                    <a
-                      href={`mailto:${site.email}`}
-                      className="text-ink transition-colors hover:text-accent"
-                    >
-                      {site.email}
-                    </a>
-                  </dd>
-                </div>
-                <div className="border-b border-line py-4">
-                  <dt className="font-mono text-[11px] text-ink-faint uppercase">
-                    Phone
-                  </dt>
-                  <dd className="mt-1">
-                    <a
-                      href={site.phoneHref}
-                      className="text-ink transition-colors hover:text-accent"
-                    >
-                      {site.phone}
-                    </a>
-                  </dd>
-                </div>
-                <div className="border-b border-line py-4">
-                  <dt className="font-mono text-[11px] text-ink-faint uppercase">
-                    GitHub
-                  </dt>
-                  <dd className="mt-1">
-                    <a
-                      href={site.social.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-ink transition-colors hover:text-accent"
-                    >
-                      github.com/tmtuanyd
-                      <span className="link-arrow">→</span>
-                    </a>
-                  </dd>
-                </div>
-                <div className="border-b border-line py-4">
-                  <dt className="font-mono text-[11px] text-ink-faint uppercase">
-                    LinkedIn
-                  </dt>
-                  <dd className="mt-1">
-                    <a
-                      href={site.social.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-ink transition-colors hover:text-accent"
-                    >
-                      linkedin.com/in/tuan-tran-71ba90191
-                      <span className="link-arrow">→</span>
-                    </a>
-                  </dd>
-                </div>
-                <div className="border-b border-line py-4">
-                  <dt className="font-mono text-[11px] text-ink-faint uppercase">
-                    Location
-                  </dt>
-                  <dd className="mt-1 text-ink">{site.location}</dd>
-                </div>
-              </dl>
-            </div>
-          </Reveal>
-        </div>
       </div>
     </section>
   );
