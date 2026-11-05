@@ -19,7 +19,7 @@ export function Hero() {
 
           <h1 className="animate-rise-delay-1 mt-6 text-4xl leading-[1.05] font-semibold tracking-tight text-ink sm:text-5xl md:text-6xl">
             {site.name}
-            <span className="mt-2 block bg-gradient-to-r from-accent to-[#9be7ff] bg-clip-text text-transparent">
+            <span className="mt-2 block text-accent">
               {site.role}
             </span>
           </h1>
@@ -62,7 +62,7 @@ export function Hero() {
         </div>
 
         <div className="animate-rise-delay-2 relative mx-auto w-full max-w-[260px] md:max-w-[340px]">
-          <div className="absolute -inset-6 rounded-[2rem] bg-[radial-gradient(circle_at_30%_20%,rgba(74,227,168,0.28),transparent_60%),radial-gradient(circle_at_80%_90%,rgba(155,231,255,0.18),transparent_55%)] blur-2xl" />
+          <div className="absolute -inset-6 rounded-[2rem] bg-[radial-gradient(circle_at_30%_20%,var(--glow),transparent_65%)] blur-2xl" />
           <div className="relative overflow-hidden rounded-3xl border border-line-strong bg-bg-panel">
             <Image
               src={site.photo}

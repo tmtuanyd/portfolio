@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { site } from "@/data/site";
 
 const links = [
@@ -45,7 +46,7 @@ export function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-40 transition-all duration-300 ${
         scrolled
-          ? "border-b border-line bg-[rgba(20,26,31,0.82)] backdrop-blur-xl"
+          ? "border-b border-line bg-bg/85 backdrop-blur-xl"
           : "bg-transparent"
       }`}
     >
@@ -99,15 +100,16 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <Link
             href="/cv"
-            className="inline-flex items-center border border-line bg-bg-elevated/60 px-3 py-2 font-mono text-xs text-ink transition-all hover:border-accent hover:text-accent md:hidden"
+            className="inline-flex h-9 items-center rounded-lg border border-line px-3 text-sm text-ink transition-colors hover:border-accent hover:text-accent md:hidden"
           >
             CV
           </Link>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 border border-line bg-bg-elevated/60 px-3 py-2 font-mono text-xs text-ink transition-all hover:border-accent hover:text-accent"
+            className="inline-flex h-9 items-center rounded-lg bg-ink px-3.5 text-sm font-medium text-bg transition-opacity hover:opacity-85"
           >
             Get in touch
           </a>

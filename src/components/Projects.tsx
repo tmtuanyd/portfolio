@@ -18,7 +18,7 @@ function ExternalLink({ href, label }: { href: string; label: string }) {
 
 function BrowserFrame({ image }: { image: NonNullable<Project["image"]> }) {
   return (
-    <div className="overflow-hidden rounded-xl border border-line-strong bg-bg-panel shadow-[0_24px_60px_rgba(0,0,0,0.45)]">
+    <div className="overflow-hidden rounded-xl border border-line-strong bg-bg-panel shadow-[0_24px_60px_var(--shadow)]">
       <div className="flex items-center gap-2 border-b border-line px-4 py-2.5">
         <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />

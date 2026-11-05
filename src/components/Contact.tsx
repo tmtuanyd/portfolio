@@ -58,7 +58,7 @@ export function Contact() {
 
         <div className="grid gap-12 md:grid-cols-[1.1fr_0.9fr] md:gap-16">
           <Reveal delay={80}>
-            <form onSubmit={onSubmit} className="panel space-y-5 p-6 md:p-7">
+            <form onSubmit={onSubmit} className="panel space-y-5 rounded-2xl p-6 md:p-7">
               <label className="block">
                 <span className="font-mono text-[11px] tracking-[0.16em] text-ink-faint uppercase">
                   Name
@@ -67,7 +67,7 @@ export function Contact() {
                   name="name"
                   required
                   disabled={status === "loading"}
-                  className="mt-2 w-full border border-line bg-bg-elevated px-4 py-3 text-sm text-ink outline-none transition-colors placeholder:text-ink-faint focus:border-accent disabled:opacity-60"
+                  className="mt-2 w-full rounded-lg border border-line bg-bg-elevated px-4 py-3 text-sm text-ink outline-none transition-colors placeholder:text-ink-faint focus:border-accent disabled:opacity-60"
                   placeholder="Your name"
                 />
               </label>
@@ -80,7 +80,7 @@ export function Contact() {
                   type="email"
                   required
                   disabled={status === "loading"}
-                  className="mt-2 w-full border border-line bg-bg-elevated px-4 py-3 text-sm text-ink outline-none transition-colors placeholder:text-ink-faint focus:border-accent disabled:opacity-60"
+                  className="mt-2 w-full rounded-lg border border-line bg-bg-elevated px-4 py-3 text-sm text-ink outline-none transition-colors placeholder:text-ink-faint focus:border-accent disabled:opacity-60"
                   placeholder="you@company.com"
                 />
               </label>
@@ -93,14 +93,14 @@ export function Contact() {
                   required
                   rows={5}
                   disabled={status === "loading"}
-                  className="mt-2 w-full resize-y border border-line bg-bg-elevated px-4 py-3 text-sm text-ink outline-none transition-colors placeholder:text-ink-faint focus:border-accent disabled:opacity-60"
+                  className="mt-2 w-full resize-y rounded-lg border border-line bg-bg-elevated px-4 py-3 text-sm text-ink outline-none transition-colors placeholder:text-ink-faint focus:border-accent disabled:opacity-60"
                   placeholder="Tell me about the product, timeline, or role."
                 />
               </label>
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="inline-flex items-center gap-2 bg-accent px-5 py-3 text-sm font-semibold text-bg transition-transform hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70"
+                className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-bg transition-transform hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {status === "loading" ? "Sending…" : "Send message"}{" "}
                 <span className="link-arrow">→</span>

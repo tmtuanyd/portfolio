@@ -1,19 +1,63 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0b0f14;
-  --bg-elevated: #11171e;
-  --bg-panel: #161d26;
-  --ink: #f4f7fa;
-  --ink-soft: #b9c3cd;
-  --ink-faint: #8794a1;
-  --accent: #4ae3a8;
-  --accent-dim: rgba(74, 227, 168, 0.16);
-  --line: rgba(238, 243, 246, 0.09);
-  --line-strong: rgba(238, 243, 246, 0.18);
-  --warm: #f2b06a;
+  color-scheme: light;
+  --bg: #fafaf7;
+  --bg-elevated: #ffffff;
+  --bg-panel: #ffffff;
+  --ink: #111317;
+  --ink-soft: #3d434b;
+  --ink-faint: #646b75;
+  --accent: #1d4ed8;
+  --accent-dim: rgba(29, 78, 216, 0.1);
+  --line: rgba(17, 19, 23, 0.09);
+  --line-strong: rgba(17, 19, 23, 0.18);
+  --warm: #c2410c;
+  --glow: rgba(29, 78, 216, 0.1);
+  --grid-line: rgba(17, 19, 23, 0.04);
+  --shadow: rgba(17, 19, 23, 0.12);
   --spot-x: 50%;
   --spot-y: 20%;
+}
+
+/* Dark tokens apply when the visitor picked dark, or when the OS is dark and
+   no explicit choice was saved; the toggle writes data-theme on <html>. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #111214;
+  --bg-elevated: #17181b;
+  --bg-panel: #1b1c20;
+  --ink: #ededed;
+  --ink-soft: #b4b8bf;
+  --ink-faint: #8b9099;
+  --accent: #8fa8ff;
+  --accent-dim: rgba(143, 168, 255, 0.14);
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.16);
+  --warm: #f2b06a;
+  --glow: rgba(143, 168, 255, 0.12);
+  --grid-line: rgba(255, 255, 255, 0.03);
+  --shadow: rgba(0, 0, 0, 0.45);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #111214;
+    --bg-elevated: #17181b;
+    --bg-panel: #1b1c20;
+    --ink: #ededed;
+    --ink-soft: #b4b8bf;
+    --ink-faint: #8b9099;
+    --accent: #8fa8ff;
+    --accent-dim: rgba(143, 168, 255, 0.14);
+    --line: rgba(255, 255, 255, 0.08);
+    --line-strong: rgba(255, 255, 255, 0.16);
+    --warm: #f2b06a;
+    --glow: rgba(143, 168, 255, 0.12);
+    --grid-line: rgba(255, 255, 255, 0.03);
+    --shadow: rgba(0, 0, 0, 0.45);
+  }
 }
 
 @theme inline {
@@ -44,9 +88,8 @@ html {
 
 body {
   background:
-    radial-gradient(ellipse 80% 50% at 12% -8%, rgba(74, 227, 168, 0.1), transparent 52%),
-    radial-gradient(ellipse 55% 40% at 92% 8%, rgba(242, 176, 106, 0.07), transparent 48%),
-    linear-gradient(180deg, #0f141a 0%, var(--bg) 38%, #090c10 100%);
+    radial-gradient(ellipse 70% 45% at 15% -10%, var(--glow), transparent 60%),
+    var(--bg);
   color: var(--ink);
   font-family: var(--font-geist), system-ui, sans-serif;
   min-height: 100%;
@@ -54,7 +97,7 @@ body {
 }
 
 ::selection {
-  background: color-mix(in oklab, var(--accent) 40%, black);
+  background: color-mix(in oklab, var(--accent) 28%, var(--bg));
   color: var(--ink);
 }
 
@@ -73,11 +116,11 @@ body {
   0%,
   100% {
     opacity: 1;
-    box-shadow: 0 0 0 0 rgba(74, 227, 168, 0.4);
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--accent) 40%, transparent);
   }
   50% {
     opacity: 0.55;
-    box-shadow: 0 0 0 6px rgba(74, 227, 168, 0);
+    box-shadow: 0 0 0 6px transparent;
   }
 }
 
@@ -209,7 +252,7 @@ body {
   background: linear-gradient(
     to bottom,
     transparent,
-    rgba(74, 227, 168, 0.08),
+    var(--glow),
     transparent
   );
   animation: scan 5s linear infinite;
@@ -251,10 +294,9 @@ body {
 
 .panel {
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 44%),
     var(--bg-panel);
   border: 1px solid var(--line);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 1px 2px var(--shadow);
 }
 
 .panel-hover {
@@ -268,7 +310,7 @@ body {
 .panel-hover:hover {
   border-color: color-mix(in oklab, var(--accent) 45%, var(--line-strong));
   transform: translateY(-6px);
-  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 16px 40px var(--shadow);
 }
 
 .link-arrow {
@@ -283,13 +325,13 @@ button:hover .link-arrow {
 
 .name-glow {
   color: var(--ink);
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  text-shadow: none;
 }
 
 .spot-layer {
   background: radial-gradient(
     640px circle at var(--spot-x) var(--spot-y),
-    rgba(74, 227, 168, 0.07),
+    var(--glow),
     transparent 52%
   );
   transition: background 0.15s linear;
@@ -303,8 +345,8 @@ button:hover .link-arrow {
 
 .grid-mask {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse at center, black 20%, transparent 72%);
 }

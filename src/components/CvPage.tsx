@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Ambient } from "@/components/Ambient";
 import { Footer } from "@/components/Footer";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { site, type Project } from "@/data/site";
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
@@ -17,7 +18,7 @@ export function CvPage() {
   return (
     <>
       <Ambient />
-      <header className="sticky top-0 z-40 border-b border-line bg-[rgba(20,26,31,0.88)] backdrop-blur-xl">
+      <header className="sticky top-0 z-40 border-b border-line bg-bg/90 backdrop-blur-xl">
         <div className="mx-auto flex w-full max-w-4xl items-center justify-between gap-4 px-5 py-4 md:px-8">
           <Link
             href="/"
@@ -26,6 +27,7 @@ export function CvPage() {
             ← Portfolio
           </Link>
           <div className="flex items-center gap-2">
+            <ThemeToggle />
             <a
               href={site.cvPdf}
               target="_blank"
