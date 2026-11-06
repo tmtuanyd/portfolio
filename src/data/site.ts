@@ -24,7 +24,7 @@ export const site = {
     "Senior Full-Stack Engineer with 7 years of experience building SaaS, marketplace, enterprise, and Web3 products. Frontend specialist in React, Next.js, and TypeScript; full-stack since 2025 with Node.js, Supabase, and PostgreSQL. Leads architecture across frontend, API, and database, and sets the performance, testing, and accessibility standards teams follow. Ships production AI features and works AI-first with Claude Code and Cursor, backed by review and tests. Mentors developers and works directly with founders.",
   email: "tmtuanyd@gmail.com",
   cvPdf: "/TuanTranCV.pdf",
-  photo: "/tuan-tran.jpg",
+  photo: "/tuan-tran-portrait.jpg",
   phone: "+84 346 731 336",
   phoneHref: "tel:+84346731336",
   location: "Hanoi, Vietnam · Remote",
@@ -389,8 +389,13 @@ export const site = {
         "Assessment quiz and result page that recommends a personal health protocol.",
       ],
       stack: ["Next.js 15", "React 19", "Contentful", "Framer Motion"],
+      image: {
+        src: "/projects/phoenix.webp",
+        alt: "Phoenix homepage with the Black Friday campaign banner, from a local build of the October 2025 code.",
+        domain: "getmyphoenix.com",
+      },
       links: [],
-      status: "Brand site retired",
+      status: "Brand site retired; screenshot from a local build of the October 2025 code",
     },
     {
       slug: "ilico",
